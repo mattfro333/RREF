@@ -10,14 +10,14 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
  response.send("Hello Evolution!");
 });
 
-exports.getIcecream = functions.https.onRequest((req, res) => {
+exports.getIcecream = functions.https.onRequest((request, response) => {
     admin.firestore().collection('icecream').get()
     .then(data => {
       let icecream =[];
       data.forEach(doc => {
         icecream.push(doc.data());
       });
-      return res.json(icecream)
+      return response.json(icecream)
     })
     .catch(err => console.error(err))
 });
