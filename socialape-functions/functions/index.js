@@ -1,7 +1,10 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-
-admin.initializeApp();
+var serviceAccount = require(path/to/serviceAccountKey.json);
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseUrl: "https://us-central1-socialape-61621.cloudfunctions.net"
+});
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
